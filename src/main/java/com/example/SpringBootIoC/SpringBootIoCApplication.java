@@ -15,7 +15,6 @@ public class SpringBootIoCApplication implements CommandLineRunner  {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Hola desde la interfaz CommandLineRunner");
-
 	}
 
 	@Bean
@@ -24,7 +23,4 @@ public class SpringBootIoCApplication implements CommandLineRunner  {
 		System.out.println("Hola desde la interfaz CommandLineRunner implementada con una expresion lambda");
 	};
 	}
-
-
-	
 }
