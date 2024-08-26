@@ -11,14 +11,13 @@ import com.example.SpringBootIoC.service.ProductService;
 @Configuration
 public class BeansInjector {
   
-  @Bean
+  @Bean("productMySQLRepository")
   @Primary
   ProductRepositoryA createProductRespositoryA(){
     return new ProductRepositoryA();
   }
   
-  @Bean
-  
+  @Bean("productXMLRepository")
   ProductRepositoryB creaProductRepositoryB(){
     return new ProductRepositoryB();
   }
