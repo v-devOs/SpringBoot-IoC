@@ -1,5 +1,11 @@
 package com.example.SpringBootIoC.repository;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+
+// @Component("productMySQLRepository")
+@Repository("productMySQLRepository")
+@Primary
 public class ProductRepositoryA implements ProductRepository {
 
   public ProductRepositoryA() {

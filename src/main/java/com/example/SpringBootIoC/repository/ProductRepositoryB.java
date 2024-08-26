@@ -1,5 +1,9 @@
 package com.example.SpringBootIoC.repository;
 
+import org.springframework.stereotype.Repository;
+
+// @Component("productXMLRepository")
+@Repository("productXMLRepository")
 public class ProductRepositoryB implements ProductRepository {
 
   public ProductRepositoryB() {

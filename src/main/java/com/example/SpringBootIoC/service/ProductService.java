@@ -1,10 +1,12 @@
 package com.example.SpringBootIoC.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.example.SpringBootIoC.repository.ProductRepository;
 
+// @Component
+@Service
 public class ProductService {
 
   public ProductService() {
@@ -12,7 +14,7 @@ public class ProductService {
   }
   
   @Autowired
-  @Qualifier("productXMLRepository")
+  // @Qualifier("productXMLRepository")
   private ProductRepository productRepository;
 
   public void save( String name ) {
