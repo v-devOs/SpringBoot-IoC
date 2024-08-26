@@ -2,7 +2,7 @@ package com.example.SpringBootIoC.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.SpringBootIoC.repository.ProductRepositoryA;
+import com.example.SpringBootIoC.repository.ProductRepository;
 
 public class ProductService {
 
@@ -11,14 +11,14 @@ public class ProductService {
   }
   
   @Autowired
-  private ProductRepositoryA productRepositoryA;
+  private ProductRepository productRepository;
 
   public void save( String name ) {
-    productRepositoryA.save(name);  
+    productRepository.save(name);  
   }
 
   public void remove( String name ) {
-    productRepositoryA.save(name);
+    productRepository.save(name);
   }
 
 }
