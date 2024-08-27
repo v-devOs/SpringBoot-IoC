@@ -1,5 +1,6 @@
 package com.example.SpringBootIoC.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,7 @@ public class ProductService {
   private ProductRepository productRepository;
 
   public ProductService( 
-    @Qualifier("productXMLRepository")
-    ProductRepository productRepository 
   ) {
-    this.productRepository = productRepository;
     System.out.println("Creando intancia de: " + this.getClass().getSimpleName());
   }
   
@@ -27,6 +25,14 @@ public class ProductService {
 
   public void remove( String name ) {
     productRepository.save(name);
+  }
+
+  @Autowired
+  @Qualifier("productXMLRepository")
+  public void setProductRepository( 
+    ProductRepository productRepository 
+  ) {
+    this.productRepository = productRepository;
   }
 
 }

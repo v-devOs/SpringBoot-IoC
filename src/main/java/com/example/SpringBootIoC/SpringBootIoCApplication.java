@@ -1,5 +1,6 @@
 package com.example.SpringBootIoC;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,5 +29,10 @@ public class SpringBootIoCApplication  {
 			productService.save("Teclado RGB");
 			productService.remove("Auriculares");
 		};
+	}
+
+	@Autowired
+	public void setProductService( ProductService productService ) {
+		this.productService = productService;
 	}
 }
