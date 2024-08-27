@@ -6,18 +6,25 @@ import org.springframework.stereotype.Service;
 
 import com.example.SpringBootIoC.repository.ProductRepository;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 // @Component
 @Service
 public class ProductService {
 
   private ProductRepository productRepository;
-
-  public ProductService( 
-  ) {
-    System.out.println("Creando intancia de: " + this.getClass().getSimpleName());
-  }
   
+  @PostConstruct
+  public void postContruct() {
+    System.out.println("====> Creando intancia de: " + this.getClass().getSimpleName());
 
+  }
+
+  @PreDestroy
+  public void preDestroy() {
+    System.out.println("====> Borrando intancia de: " + this.getClass().getSimpleName());
+  }
 
   public void save( String name ) {
     productRepository.save(name);  

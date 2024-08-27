@@ -2,12 +2,22 @@ package com.example.SpringBootIoC.repository;
 
 import org.springframework.stereotype.Repository;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 // @Component("productXMLRepository")
 @Repository("productXMLRepository")
 public class ProductRepositoryB implements ProductRepository {
 
-  public ProductRepositoryB() {
-    System.out.println("Creando intancia de: " + this.getClass().getSimpleName());
+  @PostConstruct
+  public void postContruct() {
+    System.out.println("====> Creando intancia de: " + this.getClass().getSimpleName());
+
+  }
+
+  @PreDestroy
+  public void preDestroy() {
+    System.out.println("====> Borrando intancia de: " + this.getClass().getSimpleName());
   }
 
   public void save(String name){
@@ -20,5 +30,4 @@ public class ProductRepositoryB implements ProductRepository {
     System.out.println("Producto eliminado exitosamente: " + name);
 
   }
-  
 }
