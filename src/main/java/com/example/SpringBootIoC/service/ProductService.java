@@ -2,6 +2,8 @@ package com.example.SpringBootIoC.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
 import com.example.SpringBootIoC.repository.ProductRepository;
@@ -11,6 +13,7 @@ import jakarta.annotation.PreDestroy;
 
 // @Component
 @Service
+@Scope( value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS )
 public class ProductService {
 
   private ProductRepository productRepository;
