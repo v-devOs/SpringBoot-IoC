@@ -1,5 +1,7 @@
 package com.example.SpringBootIoC;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.SpringBootIoC.service.ProductService;
+import com.example.SpringBootIoC.service.ShoppingCarService;
+
 
 
 @RestController
@@ -16,9 +20,10 @@ public class SpringBootIoCApplication  {
 	@Autowired
 	private ProductService productService;
 
-	public SpringBootIoCApplication(
-	) {
-	}
+	@Autowired
+	ShoppingCarService shoppingCarService;
+
+	public SpringBootIoCApplication() {}
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootIoCApplication.class, args);
 	}
@@ -29,5 +34,14 @@ public class SpringBootIoCApplication  {
 		return String.format("Hola spring");
 	}
 
+	@GetMapping("/add-product")
+	public String addProduct() {
+		shoppingCarService.add();
+		return "Producto agregado";
+	}
 
+	@GetMapping("/get-products")
+	public List<String> getMethodName() {
+		return shoppingCarService.get();
+	}
 }
